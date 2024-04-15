@@ -9,7 +9,7 @@ public final class DbUtil {
     private static final String mysqlDriver = "com.mysql.cj.jdbc.Driver";
     private static final String url = "jdbc:mysql://localhost:3306/itm-tor";
     private static final String username = "root";
-    private static final String password = "root123";
+    private static final String password = "password";
 
     public static Connection getConnection(){
         try {

@@ -1,12 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ugurk
-  Date: 3/5/2024
-  Time: 10:37 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c' %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="com.ugurukku.itmtor.model.entity.custom.RawIncomesData" %>
+<%@ page import="java.util.List" %>
 <html lang="az">
 
 <head>
@@ -15,11 +10,11 @@
     <title>Gəlirlər</title>
     <style>
 
-        *{
+        * {
             font-family: arial, sans-serif;
         }
 
-        h1{
+        h1 {
             text-align: center;
         }
 
@@ -81,29 +76,48 @@
         </tr>
         </thead>
         <tbody>
+        <%
+            for (RawIncomesData row : (List<RawIncomesData>) request.getAttribute("rows")) {
+        %>
+        <tr>
 
-        <c:forEach var="incomesDto" items="${incomesDtos}">
-            <tr>
-                <td>
-                    ${incomesDto.getRow()}
-                </td>
-                <td>
-                    ${incomesDto.getColumn1()}
-                </td>
-                <td>
-                        ${incomesDto.getColumn2()}
-                </td>
-                <td>
-                        ${incomesDto.getColumn3()}
-                </td>
-                <td>
-                        ${incomesDto.getColumn4()}
-                </td>
-                <td>
-                        ${incomesDto.getColumn5()}
-                </td>
-            </tr>
-        </c:forEach>
+            <%
+                if (row.getKsetir().equals("0")) {
+            %>
+            <td colspan="6">
+                <b>
+                    <%=row.getAd()%>
+                </b>
+            </td>
+            <%
+            } else {
+            %>
+            <td>
+                <%=row.getAd()%>
+            </td>
+            <td>
+                <%=row.getD1()%>
+            </td>
+            <td>
+                <%=row.getD2()%>
+            </td>
+            <td>
+                <%=row.getD3()%>
+            </td>
+            <td>
+                <%=row.getD4()%>
+            </td>
+            <td>
+                <%=row.getD5()%>
+            </td>
+            <%
+                }
+            %>
+        </tr>
+
+        <%
+            }
+        %>
 
         </tbody>
     </table>
