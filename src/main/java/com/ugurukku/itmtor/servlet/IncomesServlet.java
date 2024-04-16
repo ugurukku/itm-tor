@@ -1,6 +1,6 @@
 package com.ugurukku.itmtor.servlet;
 
-import com.ugurukku.itmtor.repository.GeneralDaoImpl;
+import com.ugurukku.itmtor.repository.GeneralRepository;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,10 +13,10 @@ import java.io.IOException;
 @WebServlet(name = "IncomesServlet",value = "/gelirler",asyncSupported = true)
 public class IncomesServlet extends HttpServlet {
 
-    private final GeneralDaoImpl incomesDao;
+    private final GeneralRepository incomesDao;
 
     public IncomesServlet() {
-        incomesDao = GeneralDaoImpl.getInstance();
+        incomesDao = GeneralRepository.getInstance();
     }
 
     @Override

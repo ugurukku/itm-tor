@@ -13,19 +13,19 @@ import java.util.logging.Logger;
 import static com.ugurukku.itmtor.constants.Queries.*;
 import static com.ugurukku.itmtor.util.DbUtil.getConnection;
 
-public class GeneralDaoImpl {
+public class GeneralRepository {
 
     private final Logger logger;
 
-    private static GeneralDaoImpl INSTANCE;
+    private static GeneralRepository INSTANCE;
 
-    private GeneralDaoImpl() {
+    private GeneralRepository() {
         logger =  Logger.getLogger(this.getClass().getName());
     }
 
-    public static GeneralDaoImpl getInstance() {
+    public static GeneralRepository getInstance() {
         if (INSTANCE == null) {
-            INSTANCE = new GeneralDaoImpl();
+            INSTANCE = new GeneralRepository();
         }
         return INSTANCE;
     }
